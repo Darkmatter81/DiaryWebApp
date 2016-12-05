@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		{% load static %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/DiaryStyle.css' %}">
+		<script type="text/javascript" src="{% static 'script/DiaryEntry.js' %}"></script>
+		<title>Diary Web App</title>
+	</head>
+
+	<body>
+		<div class="entry-view">
+			<div class="date-time-container">
+				<p class="entry-date" id="entryDate">{{entryDate}}</p>
+				<div class="entry-day-year">
+					<p id="entryDay">{{entryDay}}</p>
+					<p id="entryMonthYear">{{entryMonth}} {{entryYear}}</p>
+				</div>
+				
+				<p class="entry-time" id="entryTime">{{entryTime}}</p>
+			</div>
+	
+			<div class="entry-form-container">
+				<form>
+					<input type="text" id="title" name="entryTitle" 
+							placeholder="Entry title..."
+							required>
+					
+					<textarea type="text" name="entryText" 	placeholder="Entry text..." required></textarea>
+					
+					<button type="submit">Save entry</button>
+				</form>				
+			</div>
+		</div>
+	</body>
+</html>
