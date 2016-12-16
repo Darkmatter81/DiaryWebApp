@@ -3,7 +3,7 @@
  */
 
 function startUp() {	
-	document.getElementById("title").focus();
+	document.getElementById("id_title").focus();
 }
 
 window.onload = startUp;

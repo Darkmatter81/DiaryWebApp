@@ -58,11 +58,12 @@
 	width: 100%;
 	margin-bottom: 10px;
 }
-
-.entry-form-container textarea {
+ 
+  
+/* .entry-form-container textarea {
 	height: 200px;
 	width: 100%;
-}
+} */
 
 .entry-form-container button {
 	position: relative;

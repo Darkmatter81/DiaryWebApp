@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import logging.config
+from django.conf.global_settings import LOGGING_CONFIG
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -81,6 +83,30 @@ DATABASES = {
     }
 }
 
+LOGGING_CONFIG = None
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG' #os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+        'DiaryWebApp':{
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG'
+        }
+    },
+}
+logging.config.dictConfig(LOGGING)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

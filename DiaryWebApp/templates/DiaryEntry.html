@@ -19,18 +19,16 @@
 				
 				<p class="entry-time" id="entryTime">{{entryTime}}</p>
 			</div>
-	
+		
 			<div class="entry-form-container">
-				<form>
-					<input type="text" id="title" name="entryTitle" 
-							placeholder="Entry title..."
-							required>
+				<form id="entryForm" action="{% url 'addEntry' %}" method="post">
+					{% csrf_token %} 	
 					
-					<textarea type="text" name="entryText" 	placeholder="Entry text..." required></textarea>
-					
+					{{form}}						 
 					<button type="submit">Save entry</button>
 				</form>				
 			</div>
+		
 		</div>
 	</body>
 </html>
