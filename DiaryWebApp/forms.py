@@ -2,7 +2,7 @@ from _datetime import datetime
 import logging
 
 from django import forms
-from django.forms.widgets import Textarea, TextInput
+from django.forms.widgets import Textarea, TextInput, DateTimeInput
 
 from DiaryWebApp.models import Entry
 
@@ -21,18 +21,16 @@ class EntryForm (forms.ModelForm):
         self.fields['entryText'].label = ""
         
         # initialise date
-        self.instance.date = datetime
-        
-        logger = logging.getLogger(__name__)
-        logger.info("Date = "+ str(self.instance.date.today()))
+        self.instance.dateTime = datetime.today()
     
     def getDate(self):
-        return self.instance.date.today()
+        return self.instance.dateTime.today()
     
     class Meta:
         model = Entry
-        fields = ('title', 'entryText')
+        fields = ('title', 'entryText' )
         widgets = {
-            'title': TextInput (attrs={'placeholder':'Entry title...'}),
-            'entryText' : Textarea(attrs={'cols': 80, 'rows': 20, 'placeholder':"What's on your mind?"}),
+            'title': TextInput (attrs = {'placeholder':'Entry title...'}),
+            'entryText' : Textarea(attrs = {'cols': 80, 'rows': 20, 'placeholder':"What's on your mind?"}),
+            'dateTime' : DateTimeInput(attrs = {'type':'dateTime'}),
         }

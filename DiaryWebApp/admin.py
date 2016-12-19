@@ -1,4 +1,7 @@
 from django.contrib import admin
 from DiaryWebApp.models import Entry
 
-admin.site.register(Entry)
+class EntryTableDisplay (admin.ModelAdmin):
+    list_display = ('dateTime', 'title', 'entryText')
+
+admin.site.register(Entry, EntryTableDisplay)
