@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		{% load static %}
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="{% static 'css/DiaryStyle.css' %}">
 		<script type="text/javascript" src="{% static 'script/DiaryEntry.js' %}"></script>
 		<title>Diary Web App</title>
@@ -24,7 +25,7 @@
 				<form id="entryForm" action="{% url 'addEntry' %}" method="post">
 					{% csrf_token %}
 					{{ form }} 
-					<button type="submit">Save entry</button>
+					<button id="saveButton" type="submit">Save entry</button>
 				</form>				
 			</div>
 		

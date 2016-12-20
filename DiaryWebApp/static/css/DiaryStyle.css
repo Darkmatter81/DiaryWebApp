@@ -1,29 +1,29 @@
 @CHARSET "ISO-8859-1";
 
 /* Layout debug */
-/* {
+/* 
+* {
 	border-color: red;
 	border-style: dashed;
 	border-width: 1px;
-} */
-
+}
+ */
+  
 .entry-view {
 	width: 500px;
 	border-style:solid;
-	border-color: black;
+	border-color: #AAAAAA;
 	border-width: 1px;
+	box-shadow: 2px 2px 5px #BBBBBB;
 	padding: 10px;
 	margin: 0 auto;
-	
+	border-radius: 5px;
 }
 
 .date-time-container {
 	display: flex;
-	/* border-style:inherit;
-	border-color: inherit;
-	border-width: inherit; */
 	padding: 10px 10px 10px 10px;
-	margin-bottom:10px;
+	margin-bottom:-5px;
 }
 
 .entry-day-year{
@@ -46,26 +46,54 @@
 
 .entry-form-container {
 	overflow: auto;
-	border-style:inherit;
-	border-color: inherit;
-	border-width: inherit;
 	padding: 10px 15px 10px 10px;
 }
 
+#entryMonthYear {
+	text-transform: uppercase;
+}
 
 .entry-form-container input, textarea{
 	display:block;
 	width: 100%;
 	margin-bottom: 10px;
+	
+	-ms-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box; 
+	box-sizing:border-box;
 }
  
-  
-/* .entry-form-container textarea {
-	height: 200px;
-	width: 100%;
-} */
+input, textarea, button, p{
+	font-family: 'Nunito Sans', sans-serif;
+}
 
+input:focus, textarea:focus{
+	outline: none !important;
+	border-color: #80D3C1;
+	box-shadow: 0 0 5px #80D3C1;
+}
+ 
 .entry-form-container button {
 	position: relative;
 	float: right;
+}
+
+#saveButton {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #AAAAAA;
+	background-color: white;
+	cursor: pointer;
+	padding: 7px;
+}
+
+#saveButton:hover {
+	background-color: #80D3C1;
+	color: white;
+}
+
+#saveButton:active{
+	background-color: #41bca0;
+	color: white;
 }

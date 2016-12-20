@@ -26,9 +26,8 @@ def addEntry(request):
         # Set up view with new entry form
         entryForm = EntryForm()
         
-    date = entryForm.getDate()
-    
     # Extract time and date from Entry model to populate in view
+    date = entryForm.getDate()
     dateAndTime = {};
     dateAndTime['entryDate'] = date.day
     dateAndTime['entryYear'] = date.year
@@ -40,9 +39,8 @@ def addEntry(request):
     template = {'form': entryForm}
     template.update(dateAndTime)
     
-    logger.info("dictionary = ", template)
-    
     return render(request, "DiaryEntry.html", template)
 
 def entrySubmitted(request):
-    return HttpResponse("The data was received")
+    return HttpResponse(request)
+    #return HttpResponse("The data was received")

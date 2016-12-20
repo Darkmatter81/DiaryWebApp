@@ -31,6 +31,6 @@ class EntryForm (forms.ModelForm):
         fields = ('title', 'entryText' )
         widgets = {
             'title': TextInput (attrs = {'placeholder':'Entry title...'}),
-            'entryText' : Textarea(attrs = {'cols': 80, 'rows': 20, 'placeholder':"What's on your mind?"}),
+            'entryText' : Textarea(attrs = {'cols': 80, 'rows': 15, 'placeholder':"What's on your mind?"}),
             'dateTime' : DateTimeInput(attrs = {'type':'dateTime'}),
         }
