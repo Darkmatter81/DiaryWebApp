@@ -1,8 +1,11 @@
-from django.shortcuts import render
-from django.http.response import HttpResponse
 import logging
-import time
+
+from django.http.response import HttpResponse
+from django.shortcuts import render, get_object_or_404
+
 from DiaryWebApp.forms import EntryForm
+from DiaryWebApp.models import Entry
+
 
 logger = logging.getLogger(__name__)
 
@@ -13,20 +16,47 @@ def index(request):
 
 def addEntry(request):
     entryForm = None
-    template = {}
     
     if request.method == "POST":
         entryForm = EntryForm(request.POST)
+                
         if entryForm.is_valid():
             entryForm.save(commit = True)
-            return entrySubmitted(request)
+            return entrySubmitted("Entry has been added.")
         else:
             logger.info(entryForm.errors)
     else:    
         # Set up view with new entry form
         entryForm = EntryForm()
         
-    # Extract time and date from Entry model to populate in view
+    template = getEntryViewTemplate(entryForm)
+    
+    return render(request, "DiaryEntry.html", template)
+
+
+def editEntry(request):
+    # Get the latest entry from the database
+    entry = Entry.objects.first() #get_object_or_404(Entry, pk=15)
+     
+    if request.method == 'GET':
+        entryForm = EntryForm(instance = entry)            
+    else:
+        entryForm = EntryForm(request.POST, instance = entry)
+        if entryForm.is_valid():
+            ''' 
+            TODO: Add last updated time to model before saving
+            '''
+            entryForm.save(commit = True)
+            return entrySubmitted("Entry has been updated.") 
+
+    templateData = getEntryViewTemplate(entryForm)
+    return render(request, "EditEntry.html", templateData)
+
+
+def getEntryViewTemplate(entryForm):
+    ''' 
+        Extract time and date from Entry model to populate in view
+    '''
     date = entryForm.getDate()
     dateAndTime = {};
     dateAndTime['entryDate'] = date.day
@@ -34,13 +64,13 @@ def addEntry(request):
     dateAndTime['entryDay'] = date.strftime("%A")
     dateAndTime['entryMonth'] = date.strftime("%B")
     dateAndTime['entryTime'] = date.strftime("%H:%M")
+
+    logger.info("time = " + dateAndTime['entryTime'])
     
-    # Push form and date into template vars
     template = {'form': entryForm}
     template.update(dateAndTime)
     
-    return render(request, "DiaryEntry.html", template)
+    return template
 
-def entrySubmitted(request):
-    return HttpResponse(request)
-    #return HttpResponse("The data was received")
+def entrySubmitted(message):
+    return HttpResponse(message)

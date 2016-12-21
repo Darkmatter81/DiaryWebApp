@@ -22,10 +22,10 @@
 			</div>
 		
 			<div class="entry-form-container">
-				<form id="entryForm" action="{% url 'addEntry' %}" method="post">
+				<form id="entryForm" action="{% url 'editEntry' %}" method="post">
 					{% csrf_token %}
 					{{ form }} 
-					<button id="saveButton" type="submit">Save entry</button>
+					<button id="saveButton" type="submit">Update entry</button>
 				</form>				
 			</div>
 		
