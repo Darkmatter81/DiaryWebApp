@@ -25,7 +25,15 @@
 				<form id="entryForm" action="{% url 'editEntry' %}" method="post">
 					{% csrf_token %}
 					{{ form }} 
-					<button id="saveButton" type="submit">Update entry</button>
+					
+					<div class = "form-button-container">
+					
+						{% if form.instance.lastUpdated %}
+						<p id="lastUpdatedLabel" >Last updated: 
+								{{form.instance.lastUpdated |date:"d M Y"}} at {{form.instance.lastUpdated |time:"H:i"}}</p>
+						{%endif%}
+						<button id="saveButton" type="submit">Update entry</button>
+					</div>
 				</form>				
 			</div>
 		

@@ -25,7 +25,9 @@
 				<form id="entryForm" action="{% url 'addEntry' %}" method="post">
 					{% csrf_token %}
 					{{ form }} 
-					<button id="saveButton" type="submit">Save entry</button>
+					<div class="form-button-container">
+						<button id="saveButton" type="submit">Save entry</button>
+					</div>
 				</form>				
 			</div>
 		

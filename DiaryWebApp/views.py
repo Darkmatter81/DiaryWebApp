@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404
 
 from DiaryWebApp.forms import EntryForm
 from DiaryWebApp.models import Entry
+from datetime import datetime
 
 
 logger = logging.getLogger(__name__)
@@ -36,19 +37,16 @@ def addEntry(request):
 
 def editEntry(request):
     # Get the latest entry from the database
-    entry = Entry.objects.first() #get_object_or_404(Entry, pk=15)
+    entry = Entry.objects.last() #get_object_or_404(Entry, pk=15)
      
     if request.method == 'GET':
         entryForm = EntryForm(instance = entry)            
     else:
         entryForm = EntryForm(request.POST, instance = entry)
         if entryForm.is_valid():
-            ''' 
-            TODO: Add last updated time to model before saving
-            '''
+            entryForm.setLastUpdated(datetime.now())
             entryForm.save(commit = True)
-            return entrySubmitted("Entry has been updated.") 
-
+    
     templateData = getEntryViewTemplate(entryForm)
     return render(request, "EditEntry.html", templateData)
 

@@ -1,13 +1,11 @@
 @CHARSET "ISO-8859-1";
 
 /* Layout debug */
-/* 
 * {
-	border-color: red;
+/* 	border-color: red;
 	border-style: dashed;
-	border-width: 1px;
+	border-width: 1px; */
 }
- */
   
 .entry-view {
 	width: 500px;
@@ -45,7 +43,7 @@
 }
 
 .entry-form-container {
-	overflow: auto;
+	/* overflow: auto; */
 	padding: 10px 15px 10px 10px;
 }
 
@@ -73,10 +71,20 @@ input:focus, textarea:focus{
 	border-color: #80D3C1;
 	box-shadow: 0 0 5px #80D3C1;
 }
- 
+
+
 .entry-form-container button {
-	position: relative;
-	float: right;
+	margin-left: auto;
+}
+
+.form-button-container {
+	display: flex;
+}
+
+#lastUpdatedLabel{
+	margin-top: 4px;
+	margin-bottom: 6px;
+	font-size: 11px;
 }
 
 #saveButton {

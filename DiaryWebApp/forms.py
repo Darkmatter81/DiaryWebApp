@@ -1,8 +1,8 @@
-from _datetime import datetime, date
+from _datetime import datetime
 import logging
 
 from django import forms
-from django.forms.widgets import Textarea, TextInput, DateTimeInput, HiddenInput
+from django.forms.widgets import Textarea, TextInput, HiddenInput
 
 from DiaryWebApp.models import Entry
 
@@ -30,6 +30,9 @@ class EntryForm (forms.ModelForm):
     def getDate(self):
         return self.instance.dateTime
     
+    def setLastUpdated(self, lastUpdated):
+        self.instance.lastUpdated = lastUpdated
+        
     class Meta:
         model = Entry
         fields = ('title', 'entryText', 'dateTime')
