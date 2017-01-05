@@ -1,7 +1,7 @@
 import logging
 
 from django.http.response import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect,  get_object_or_404
 
 from DiaryWebApp.forms import EntryForm
 from DiaryWebApp.models import Entry
@@ -23,7 +23,7 @@ def addEntry(request):
                 
         if entryForm.is_valid():
             entryForm.save(commit = True)
-            return entrySubmitted("Entry has been added.")
+            return redirect('editEntry', entryForm.instance.id)
         else:
             logger.info(entryForm.errors)
     else:    
@@ -35,12 +35,13 @@ def addEntry(request):
     return render(request, "DiaryEntry.html", template)
 
 
-def editEntry(request):
+def editEntry(request, entryId):
     # Get the latest entry from the database
-    entry = Entry.objects.last() #get_object_or_404(Entry, pk=15)
+    #entry = Entry.objects.get(id = entryId)
+    entry = get_object_or_404(Entry, pk=entryId)
      
     if request.method == 'GET':
-        entryForm = EntryForm(instance = entry)            
+        entryForm = EntryForm(instance = entry)
     else:
         entryForm = EntryForm(request.POST, instance = entry)
         if entryForm.is_valid():
@@ -49,7 +50,6 @@ def editEntry(request):
     
     templateData = getEntryViewTemplate(entryForm)
     return render(request, "EditEntry.html", templateData)
-
 
 def getEntryViewTemplate(entryForm):
     ''' 

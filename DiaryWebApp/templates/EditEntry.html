@@ -22,7 +22,7 @@
 			</div>
 		
 			<div class="entry-form-container">
-				<form id="entryForm" action="{% url 'editEntry' %}" method="post">
+				<form id="entryForm" action="{% url 'editEntry' form.instance.id %}" method="post">
 					{% csrf_token %}
 					{{ form }} 
 					
