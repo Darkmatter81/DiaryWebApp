@@ -7,11 +7,12 @@
 	border-width: 1px; */
 }
   
-.entry-view {
+.main-container {
 	width: 500px;
 	border-style:solid;
 	border-color: #AAAAAA;
 	border-width: 1px;
+	background-color: #fdfdfd; 
 	box-shadow: 2px 2px 5px #BBBBBB;
 	padding: 10px;
 	margin: 0 auto;
@@ -87,7 +88,7 @@ input:focus, textarea:focus{
 	font-size: 11px;
 }
 
-#saveButton {
+.diaryBtn {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #AAAAAA;
@@ -96,12 +97,12 @@ input:focus, textarea:focus{
 	padding: 7px;
 }
 
-#saveButton:hover {
+.diaryBtn:hover {
 	background-color: #80D3C1;
 	color: white;
 }
 
-#saveButton:active{
+.diaryBtn:active{
 	background-color: #41bca0;
 	color: white;
 }

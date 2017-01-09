@@ -51,6 +51,10 @@ def editEntry(request, entryId):
     templateData = getEntryViewTemplate(entryForm)
     return render(request, "EditEntry.html", templateData)
 
+def listEntries(request):
+    return render(request, "EntriesList.html")
+
+
 def getEntryViewTemplate(entryForm):
     ''' 
         Extract time and date from Entry model to populate in view

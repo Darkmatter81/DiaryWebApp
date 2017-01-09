@@ -4,13 +4,13 @@
 		<meta charset="ISO-8859-1">
 		{% load static %}
 		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="{% static 'css/DiaryFormStyle.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/DiaryStyle.css' %}">
 		<script type="text/javascript" src="{% static 'script/DiaryEntry.js' %}"></script>
 		<title>Diary Web App</title>
 	</head>
 
 	<body>
-		<div class="entry-view">
+		<div class="main-container">
 			<div class="date-time-container">
 				<p class="entry-date" id="entryDate">{{entryDate}}</p>
 				<div class="entry-day-year">
@@ -26,7 +26,7 @@
 					{% csrf_token %}
 					{{ form }} 
 					<div class="form-button-container">
-						<button id="saveButton" type="submit">Save entry</button>
+						<button class="diaryBtn" type="submit">Save entry</button>
 					</div>
 				</form>				
 			</div>

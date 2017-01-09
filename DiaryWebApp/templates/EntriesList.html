@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		{% load static %}
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/DiaryStyle.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/EntriesListStyle.css' %}">
+		<script type="text/javascript" src="{% static 'script/DiaryEntry.js' %}"></script>
+		<title>Diary Web App</title>
+	</head>
+
+	<body>
+		<div class="main-container">
+			<p id="entries-heading">Entries List</p>
+			<div class="menu-container">
+				<button class='diaryBtn'>New Entry</button>	
+			</div>
+			
+			<div class="entries-container">
+				<div class="entry-item"></div>
+				<div class="entry-item"></div>
+				<div class="entry-item"></div>
+			</div>
+		</div>
+	</body>
+</html>
