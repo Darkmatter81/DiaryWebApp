@@ -52,7 +52,10 @@ def editEntry(request, entryId):
     return render(request, "EditEntry.html", templateData)
 
 def listEntries(request):
-    return render(request, "EntriesList.html")
+    
+    entries = Entry.objects.all().order_by('-dateTime')
+    
+    return render(request, "EntriesList.html", {"entries": entries})
 
 
 def getEntryViewTemplate(entryForm):

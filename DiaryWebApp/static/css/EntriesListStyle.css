@@ -8,10 +8,10 @@
 /* debug */
 
 *{
-/* border-color: red;
-	border-style: dashed;
-	border-width: 1px; */
-}
+	border-color: red;
+/* 	border-style: dashed;
+	border-width: 1px;
+ */}
 
 .main-container {
 	width: 800px;
@@ -31,10 +31,12 @@
 .entries-container {
 	height: 400px;
 	padding: 10px;
+	font-size: 12px;
+	overflow-y: auto;
 }
 
 .entry-item{
-	height: 70px;
+/* 	height: 70px; */
 	background-color: white;
 	border-color: #eeeeee;
 	border-style: solid;
@@ -44,4 +46,51 @@
 	border-bottom-color: #cccccc;
 /* 	box-shadow: 1px 1px 5px #CCCCCC; */
 	margin-top: -1px;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.entry-item-details{
+	display: flex;
+}
+
+.entry-item p {
+	margin: 0px; 
+}
+
+.item-time-date{
+	text-transform: uppercase;
+	width:50px;	
+	line-height: 10px;
+}
+
+
+.item-detail{
+	width: 100%;
+	margin-right: auto;
+	margin-left: 10px;
+	font-size: 14px;
+}
+
+
+.item-detail-text{
+ 	height: 38px;
+ 	white-space: wrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.item-options{
+	width: 30px;
+	margin-left: 4px;
+}
+
+.item-options button{
+	
+}
+
+.divider{
+    width:auto;
+    height:5px;
+    display:block;
 }
