@@ -44,8 +44,9 @@
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
 	border-bottom-color: #cccccc;
-/* 	box-shadow: 1px 1px 5px #CCCCCC; */
+ 	box-shadow: 1px 1px 5px #CCCCCC; 
 	margin-top: -1px;
+	margin-bottom: 7px;
 	padding: 10px;
 	overflow: hidden;
 }
@@ -55,34 +56,82 @@
 }
 
 .entry-item p {
-	margin: 0px; 
+/* 	margin: 0px; */ 
 }
 
 .item-time-date{
 	text-transform: uppercase;
+	text-align: center;
 	width:50px;	
 	line-height: 10px;
 }
 
+#day{
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+#date {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 25px;
+}
+
+#month{
+	margin-top: 10px;
+	font-size: 15px;
+}
+
+#time {
+	font-size: 16px;
+}
+
+#time{
+	margin-top: 25px;
+}
 
 .item-detail{
 	width: 100%;
 	margin-right: auto;
-	margin-left: 10px;
+	margin-left: 20px;
 	font-size: 14px;
+	
+	/* border-style: dashed;
+	border-color: red;
+	border-width: 1px; */
 }
+
+/*.item-detail * {
+	border-style: dashed;
+	border-color: blue;
+	border-width: 1px;
+}*/
 
 
 .item-detail-text{
- 	height: 38px;
+ 	height: 58px;
  	white-space: wrap; 
     overflow: hidden;
     text-overflow: ellipsis; 
+	margin-top: 5px;
+}
+
+#lastUpdated{
+	text-align: right;
+	font-size: 11px;
+	margin-bottom: 0px;
+	font-style: italic;
 }
 
 .item-options{
 	width: 30px;
 	margin-left: 4px;
+}
+
+.item-detail-title{
+	font-weight: bold;	
+	margin-top: 9px;
+	margin-bottom: 0px;
 }
 
 .item-options button{

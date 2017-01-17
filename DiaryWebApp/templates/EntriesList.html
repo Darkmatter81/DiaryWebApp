@@ -22,30 +22,26 @@
 				<div class="entry-item">
 					<div class="entry-item-details">
 						<div class="item-time-date">
-							<p>{{entry.dateTime |date:"D" }}</p>
-							<div class="divider"></div>
-							<div class="divider"></div>
-							<div class="divider"></div>
-							<div class="divider"></div>
-							<p>{{entry.dateTime |date:"d"}} {{entry.dateTime |date:"M"}}</p>
-							<div class="divider"></div>
-							<p>{{entry.dateTime |time:"H:i"}}</p>
+							<p id="day">{{entry.dateTime |date:"D" }}</p>
+							<p id="date">{{entry.dateTime |date:"d"}}</p>
+							<p id="month">{{entry.dateTime |date:"M"}}</p>
+							<p id="time">{{entry.dateTime |time:"H:i"}}</p>
 						</div>
 						
 						<div class="item-detail">
 							<p class="item-detail-title">{{entry.title}}</p>
 							<div class="divider"></div>
 							<p class="item-detail-text">{{entry.entryText}}</p>
+								
+							{% if entry.lastUpdated %}
+							<p id="lastUpdated">Last updated: {{entry.lastUpdated |date:"d M Y"}} at {{entry.lastUpdated |time:"H:i"}}</p>
+							{% endif %}
 						</div>
 						
 						<div class="item-options">
 							<button class="diaryBtn">X</button>
 						</div>
 					</div>
-					
-					{% if entry.lastUpdated %}
-					<p>Last updated: {{entry.lastUpdated |date:"d M Y"}} at {{entry.lastUpdated |time:"H:i"}}</p>
-					{% endif %}
 				</div>
 				{% endfor %}
 			</div>
